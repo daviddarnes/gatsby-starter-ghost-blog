@@ -1,11 +1,23 @@
+const path = require(`path`)
+
+require(`dotenv`).config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
+if (!process.env.GHOST_API_URL || !process.env.GHOST_API_KEY) {
+  throw new Error(
+    `GHOST_API_URL and GHOST_API_KEY are required to build. Check the README.`
+  )
+}
+
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Starter Blog',
-    author: 'Kyle Mathews',
-    description: 'A starter blog demonstrating what Gatsby can do.',
-    siteUrl: 'https://gatsbyjs.github.io/gatsby-starter-blog/',
+    title: `My Ghost Blog`,
+    author: `David Darnes`,
+    siteUrl: `https://gatsby-starter-ghost-blog.netlify.com`,
+    description: `Just another blog, but this time it's different`,
   },
-  pathPrefix: '/gatsby-starter-blog',
+  pathPrefix: '/gatsby-starter-ghost-blog',
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
@@ -48,7 +60,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
+        name: `Gatsby Starter Ghost Blog`,
         short_name: `GatsbyJS`,
         start_url: `/`,
         background_color: `#ffffff`,
@@ -68,9 +80,9 @@ module.exports = {
     {
       resolve: `gatsby-source-ghost`,
       options: {
-        apiUrl: `https://john.ghost.io`,
+        apiUrl: `${process.env.GHOST_API_URL}`,
         clientId: `ghost-frontend`,
-        clientSecret: `a06745f6b3b2`,
+        clientSecret: `${process.env.GHOST_API_KEY}`,
        },
     },
   ],
