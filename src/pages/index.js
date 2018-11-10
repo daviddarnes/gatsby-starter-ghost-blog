@@ -38,7 +38,7 @@ class BlogIndex extends React.Component {
                 </Link>
               </h3>
               <small>{node.published_at}</small>
-              <p dangerouslySetInnerHTML={{ __html: node.html }} />
+              <p dangerouslySetInnerHTML={{ __html: `${node.plaintext.slice(0,208)}...` }} />
             </div>
           )
         })}
@@ -60,7 +60,7 @@ export const pageQuery = graphql`
     allGhostPost(sort: { order: DESC, fields: [published_at] }) {
       edges {
         node {
-          html
+          plaintext
           title
           slug
           published_at(formatString: "DD MMMM, YYYY")
