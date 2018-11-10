@@ -20,13 +20,6 @@ module.exports = {
   pathPrefix: '/gatsby-starter-ghost-blog',
   plugins: [
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/pages`,
-        name: 'pages',
-      },
-    },
-    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
