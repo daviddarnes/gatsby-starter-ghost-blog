@@ -57,14 +57,14 @@ export default class BlogList extends React.Component {
             padding: 0,
           }}
         >
-        {
+        <li>{
           !isFirst &&
           <Link to={prevPage} rel="prev">← Previous Page</Link>
-        }
-        {
+        }</li>
+        <li>{
           !isLast &&
           <Link to={nextPage} rel="next">Next Page →</Link>
-        }
+        }</li>
         </ul>
       </Layout>
     )
