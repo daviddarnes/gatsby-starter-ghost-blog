@@ -32,6 +32,9 @@ class BlogPostTemplate extends React.Component {
         >
           {post.published_at}
         </p>
+        { post.feature_image &&
+          <img src={process.env.GHOST_API_URL + post.feature_image} />
+        }
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
           style={{
@@ -85,6 +88,7 @@ export const pageQuery = graphql`
       html
       title
       slug
+      feature_image
       published_at(formatString: "DD MMMM, YYYY")
     }
   }

@@ -43,6 +43,9 @@ export default class BlogList extends React.Component {
                 </Link>
               </h3>
               <small>{node.published_at}</small>
+              { node.feature_image &&
+                <img src={process.env.GHOST_API_URL + node.feature_image} />
+              }
               <p dangerouslySetInnerHTML={{ __html: `${node.plaintext.slice(0,208)}...` }} />
             </div>
           )
@@ -89,6 +92,7 @@ query PaginationQuery($skip: Int!, $limit: Int!) {
         plaintext
         title
         slug
+        feature_image
         published_at(formatString: "DD MMMM, YYYY")
       }
     }

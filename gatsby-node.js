@@ -19,6 +19,7 @@ exports.createPages = ({ graphql, actions }) => {
                   title
                   slug
                   published_at(formatString: "DD MMMM, YYYY")
+                  feature_image
                 }
               }
             }
