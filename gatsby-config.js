@@ -105,7 +105,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Gatsby Starter Ghost Blog`,
-        short_name: `GatsbyJS`,
+        short_name: `Ghost Blog`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
